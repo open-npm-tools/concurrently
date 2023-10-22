@@ -16,6 +16,7 @@ import { LogExit } from './flow-control/log-exit';
 import { LogOutput } from './flow-control/log-output';
 import { LogTimings } from './flow-control/log-timings';
 import { RestartProcess } from './flow-control/restart-process';
+import { StatusLine } from './flow-control/status-line';
 import { Logger } from './logger';
 
 export type ConcurrentlyOptions = BaseConcurrentlyOptions & {
@@ -137,6 +138,7 @@ export default (
                 logger: options.timings ? logger : undefined,
                 timestampFormat: options.timestampFormat,
             }),
+            new StatusLine({ logger }),
         ],
         prefixColors: options.prefixColors || [],
         additionalArguments: options.additionalArguments,
